@@ -1,0 +1,30 @@
+{
+    "name": "Cross-site interactive wishlist",
+    "description": "All your wishlist items in one place",
+    "version": "1.0",
+    "permissions": ["contextMenus", "declarativeContent", "activeTab","<all_urls>", "storage", "tabs", "https://www.amazon.com/*","https://www.amazon.ca/*","https://www.amazon.fr/*","https://www.amazon.de/*","https://www.amazon.in/*","https://www.amazon.it/*","https://www.amazon.co.jp/*", "https://www.amazon.com.mx/*","https://www.amazon.es/*","https://smile.amazon.co.uk/*","https://www.amazon.co.uk/*"],
+    "content_scripts": [{
+        "matches": ["*://*.amazon.com/*", "*://*.ebay.com/*", "*://*.aliexpress.com/*"],
+        "js": ["contentScript.js"],
+        "run_at": "document_end"
+      }],
+    "background": {
+        "scripts": ["jquery-3.5.1.min.js" ,"background.js"],
+        "persistent": true
+    },
+    "browser_action": {
+        "default_popup": "popup/popup.html",
+        "default_icon": {
+        "16": "images/shopping-cart_16px.png",
+        "32": "images/shopping-cart_32px.png",
+        "128": "images/shopping-cart_128px.png"
+        }
+  },
+    "icons": {
+        "16": "images/shopping-cart_16px.png",
+        "32": "images/shopping-cart_32px.png",
+        "128": "images/shopping-cart_128px.png"
+      },
+    "author": "M.G Extensions",
+    "manifest_version": 2
+}
