@@ -134,7 +134,7 @@ function delete_item_from_popup_or_page(url){
             });
             const keys = Object.keys(result);
             keys.forEach((key) =>{
-                result[key].splice(index-1, 1);
+                result[key].splice(index, 1)
             });
             console.log(result); 
             chrome.storage.sync.set(result);

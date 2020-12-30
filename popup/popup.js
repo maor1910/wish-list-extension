@@ -20,7 +20,6 @@ chrome.storage.sync.get(null, async function(obj) {
   let del = await Array.prototype.slice.call(document.getElementsByClassName("delete"));
   del.forEach(element =>{
     element.addEventListener("click", function(item) {
-      $(this).parent().parent().remove();
       let bg_page = chrome.extension.getBackgroundPage();
       bg_page.delete_item_from_popup_or_page(element.getAttribute("id")); 
       location.reload();
