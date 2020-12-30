@@ -3,16 +3,16 @@ chrome.storage.sync.get(null, async function(obj) {
   for (let i=0; i<obj.urls.length;i++){
     str += '<tr><td><span class="delete" id='
     str += obj.urls[i]
-    str += '><i class="fas fa-trash-alt"></i></span></td><td class="image" style="width: 25px;height: 25px;"><img src='
+    str += '><i class="fas fa-trash-alt"></i></span></td><td class="image"><img src='
     str += obj.images[i];
     str += '></td>'
-    str += '<td class="price" style="width: 25px;height: 25px;">';
+    str += '<td class="price">';
     str += obj.prices[i];
-    str += '</td><td class="site" style="width = 25px; height = 25px;">'
+    str += '</td><td class="site">'
     str += obj.sites[i];
-    str += '</td><td class="tds" style="width: 25px;height: 25px;"><button id="link" type="button">Go<a href='
-    str += obj.urls[i]
-    str += '></a></button></td></tr>';
+    str += '</td><td class="tds"><form id="link" action='
+    str += obj.urls[i];
+    str += '><button type="button">Go</button></form></td></tr>'
   }
   document.getElementById("table").innerHTML = str;
 
@@ -28,10 +28,10 @@ chrome.storage.sync.get(null, async function(obj) {
   });
 
   //make the go open a new tab
-  //Need to make this run onlt after get_items finishes
+  //Need to make this run only after get_items finishes
   $().ready(function(){
-    $(document).on('click', '#link', function(){
-      chrome.tabs.create({url: $(this).attr('href')});
+    $(document).on('click', '#link', function(element){
+      chrome.tabs.create({url: element.currentTarget.getAttribute("action")});
       return false;
     });
   });

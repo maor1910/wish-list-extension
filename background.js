@@ -11,15 +11,15 @@ chrome.runtime.onInstalled.addListener(function() {
 chrome.contextMenus.create({
     "title": "Add item to wishlist",
    // "onclick": add_item,
-    "id": "1"
+    "id": "add_item",
 });
 chrome.contextMenus.create({
     "title": "delete item from wishlist",
    // "onclick": delete_item,
-    "id": "2"
+    "id": "delete_item"
 });
 chrome.contextMenus.onClicked.addListener((info,tab)=>{
-    if(info.menuItemId == "1"){
+    if(info.menuItemId == "add_item"){
         add_item(info, tab);
     }
     else{

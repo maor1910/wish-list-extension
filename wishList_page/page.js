@@ -7,11 +7,11 @@ chrome.storage.sync.get(null, async function(obj) {
 		str += obj.products[i];
 		str += '</td><td class="price tds">';
 		str += obj.prices[i];
-		str += '</td><td class="tds">in stock</td><td class="tds"><button type="button" class="btn btn-success"><a class="product_url" style="text-decoration: none; color: white;" href=';
-		str += obj.urls[i]
-		str += '>Go</a></button><button type="button" class="btn btn-danger delete" id='
+		str += '</td><td class="tds">in stock</td><td class="tds"><form id="link" action='
 		str += obj.urls[i];
-		str += '>Delete</button></td></tr>';	
+		str += '><button type="button" class="btn btn-success">Go</button></form><form><button type="button" class="btn btn-danger delete" id=';
+		str += obj.urls[i];
+		str += '>Delete</button></form></td></tr>';	
 	}
 	document.getElementById("table").innerHTML = str;
 
@@ -26,5 +26,14 @@ chrome.storage.sync.get(null, async function(obj) {
 		});
 	});
 });
+  //make the go open a new tab
+  //Need to make this run only after get_items finishes
+  $().ready(function(){
+    $(document).on('click', '#link', function(element){
+	  console.log(element);
+      chrome.tabs.create({url: element.currentTarget.getAttribute("action")});
+      return false;
+    });
+  });
 
 
