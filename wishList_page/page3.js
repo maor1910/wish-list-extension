@@ -6,7 +6,7 @@ chrome.storage.sync.get(null, async function(obj) {
             str += '<div class="row pb-5 mb-4">'
             flag = !flag;
         } 
-        str += '<div class="col-lg-3 col-md-6 mb-4 mb-lg-0">'
+        str += '<div class="col-lg-3 col-md-6 mb-4 mb-lg-4">'
         str += '<div class="card rounded shadow-sm border-0">'
         str += '<div class="card-body p-4"><img src='
 		str += obj.images[i];
@@ -18,7 +18,7 @@ chrome.storage.sync.get(null, async function(obj) {
         str += obj.prices[i];
         str += '</span><br>'
         str += '<h5> <a href="#" class="text-dark">'
-        str += obj.products[i];
+        str += obj.products[i].substring(0,65);
         str += '</a></h5>'
         str += '<p class="small text-muted font-italic">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>'
         str += '<a class="btn-sm btn-danger mt-2 float-right" href='
