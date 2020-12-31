@@ -58,4 +58,17 @@ td:hover span{
 #link{
   margin: 0;
   padding: 0;
+  width: 100%;
+}
+.price{
+  color: green;
+  font-size: medium;
+  font-weight: 500;
+  margin: auto;
+}
+.tds{
+  width: 25%;
+}
+.card-body{
+  height: 422px;
 }

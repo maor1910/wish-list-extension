@@ -20,11 +20,11 @@ chrome.contextMenus.onClicked.addListener((info, tab) => {
 
 function add_item(info, tab) {
     let site = find_site(info.pageUrl);
-    let site_image = find_site_image(site);
     if (site === "no_match") {
         alert("website not on the list - can't add items from this website ");
         return;
     }
+    let site_image = find_site_image(site);
     check_item_exists(info.pageUrl)
         .then(result => {
             if (result) {
@@ -33,15 +33,17 @@ function add_item(info, tab) {
             }
             chrome.storage.sync.get(null, function (result) {
                 chrome.tabs.sendMessage(tab.id, { "site": site }, function (response) {
-                    if (response != undefined) {
+                    if (response.image.length !== 0) {
                         result.images.push(response.image);
+                    }
+                    else{
+                        result.images.push("https://whetstonefire.org/wp-content/uploads/2020/06/image-not-available.jpg");    //fallback
+                    }
+                    if(response.price.length !== 0){
                         result.prices.push(response.price);
                     }
                     else {
-                        alert("else");
-                        result.images.push("https://whetstonefire.org/wp-content/uploads/2020/06/image-not-available.jpg");    //fallback
                         result.prices.push("unknown, please check website");
-
                     }
                     result.products.push(tab.title);
                     result.urls.push(info.pageUrl);

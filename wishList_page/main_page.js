@@ -21,7 +21,7 @@ chrome.storage.sync.get(null, async function (obj) {
         str += obj.products[i].substring(0, 65);
         str += '</a></h5>'
         str += '<p class="small text-muted font-italic">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>'
-        str += '<a class="btn-sm btn-danger mt-2 float-right" href='
+        str += '<a class="btn-sm btn-success mt-2 float-right" href='
         str += obj.urls[i];
         str += '><i class="fas fa-shopping-cart"></i> Add to Cart</a></div></div></div>'
         if (i % 4 === 0 & flag) {

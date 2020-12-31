@@ -22,9 +22,15 @@ body {
 .fa-heart{
   color: red;
   font-size: 1.5rem;
+  opacity: 0.7;
+}
+.jumbotron{
+  padding-top: 32px;
+  padding-bottom: 32px;
 }
 #head_text{
   text-align: center;
+
 }
 
 body {
@@ -57,7 +63,6 @@ img{
   text-decoration: none;
   color: #555;
 }
-
 .progress {
   height: 10px;
 }
@@ -65,7 +70,10 @@ img{
   height: 30px;
 }
 #h2_head {
-  margin-left: 17%;
+  margin-left: 16.5%;
   background-color: honeydew;
   width: 40%;
+}
+#muted_header{
+  font-size: x-large;
 }

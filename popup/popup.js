@@ -6,9 +6,9 @@ chrome.storage.sync.get(null, async function (obj) {
     str += '><i class="fas fa-trash-alt"></i></span></td><td class="image"><img src='
     str += obj.images[i];
     str += '></td>'
-    str += '<td class="price">';
+    str += '<td class="tds"> <p class="price">';
     str += obj.prices[i];
-    str += '</td><td class="site"><img src='
+    str += '</p></td><td class="site"><img src='
     str += obj.sites_images[i];
     str += '></td><td class="tds"><form id="link" action='
     str += obj.urls[i];

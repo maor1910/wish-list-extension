@@ -23,7 +23,7 @@ let selectors =
 chrome.runtime.onMessage.addListener(async function (msg, sender, sendResponse) {
     let site = msg['site'];
     let image_src = "";
-    let price = "?";
+    let price = "";
     selectors.images[site].forEach(selector => {
         if(document.getElementById(selector)!=null){
             image_src = document.getElementById(selector).getAttribute("src");
