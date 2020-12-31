@@ -7,6 +7,7 @@ html {
   }
 body {
   padding: 2rem 0rem;
+  padding: 10px;
   background-image: url(https://previews.123rf.com/images/mix3r/mix3r1803/mix3r180300099/96465214-supermarket-shopping-cart-flat-vector-isolated-on-color-background.jpg);
 }
 .like {
@@ -60,22 +61,11 @@ img{
 .progress {
   height: 10px;
 }
-#h2_head {
-  margin-left: 13%;
-  background-color: honeydew;
-  width: 40%;
-
-
-}
-#p_head{
-  margin-left: 13%;
-  color: rgb(0, 0, 0);
-  font-size: x-large;
-  font-weight: 400;
-  background-color: honeydew;
-  width: 40%;
-}
-.remove_heart{
+.card-img-overlay{
   height: 30px;
-
+}
+#h2_head {
+  margin-left: 17%;
+  background-color: honeydew;
+  width: 40%;
 }

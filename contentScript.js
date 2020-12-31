@@ -4,14 +4,19 @@ let selectors =
         {
             "Amazon": ["landingImage"],
             "Ebay": ["icImg"],
-            "Aliexpress": ["poster"],
-            "no_match": ["https://whetstonefire.org/wp-content/uploads/2020/06/image-not-available.jpg"]
+            "Aliexpress": ["poster"]
         },
     "prices":
         {
             "Amazon": ["price_inside_buybox"],
             "Ebay": ["prcIsum"],
-            "Aliexpress": ["poster"]
+            "Aliexpress": ["product-price-value"]
+        },
+    "product_names":
+        {
+            "Amazon": ["productTitle"],
+            "Ebay": ["it-ttl"],
+            "Aliexpress": ["product-title-text"]
         }
 }
 // Listen for messages
@@ -24,15 +29,11 @@ chrome.runtime.onMessage.addListener(async function (msg, sender, sendResponse) 
             image_src = document.getElementById(selector).getAttribute("src");
         }
     });
-    console.log(site);
-    console.log(selectors.prices[site]);
     selectors.prices[site].forEach(selector => {
         if(document.getElementById(selector)!=null && document.getElementById(selector)!=undefined){
             price = document.getElementById(selector).innerHTML;
         }
-    });
-    //let image_src = document.getElementById(selectors.images[site]).getAttribute("src");
-    //let price = document.getElementById(selectors.prices[site]).innerHTML;
+    });    
     await sendResponse({'image': image_src, 'price': price});
 });
 
