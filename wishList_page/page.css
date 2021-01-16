@@ -5,11 +5,6 @@ html {
   padding: 0;
 
   }
-body {
-  padding: 2rem 0rem;
-  padding: 10px;
-  background-image: url(https://previews.123rf.com/images/mix3r/mix3r1803/mix3r180300099/96465214-supermarket-shopping-cart-flat-vector-isolated-on-color-background.jpg);
-}
 .like {
   font-size: 1.5rem;
 }
@@ -36,7 +31,7 @@ body {
 body {
   min-height: 100vh;
   background: #fafafa;
-  background-image: url(https://images.pexels.com/photos/220182/pexels-photo-220182.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);
+  background-image: url(https://images.unsplash.com/photo-1534796636912-3b95b3ab5986?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1351&q=80);
 
 }
 img{
@@ -70,10 +65,13 @@ img{
   height: 30px;
 }
 #h2_head {
-  margin-left: 16.5%;
+  margin-left: 21%;
   background-color: honeydew;
   width: 40%;
 }
 #muted_header{
   font-size: x-large;
+}
+.card{
+  height: 380px;
 }

@@ -2,11 +2,51 @@
     "name": "Cross-site interactive wishlist",
     "description": "All your wishlist items in one place",
     "version": "1.0",
-    "permissions": ["contextMenus", "declarativeContent", "activeTab","<all_urls>", "storage", "tabs", "https://www.amazon.com/*","https://www.amazon.ca/*","https://www.amazon.fr/*","https://www.amazon.de/*","https://www.amazon.in/*","https://www.amazon.it/*","https://www.amazon.co.jp/*", "https://www.amazon.com.mx/*","https://www.amazon.es/*","https://smile.amazon.co.uk/*","https://www.amazon.co.uk/*"],
+    "permissions": ["contextMenus", "activeTab", "storage", "tabs"],
     "content_scripts": [{
-        "matches": ["*://*.amazon.com/*", "*://*.ebay.com/*", "*://*.aliexpress.com/*"],
-        "js": ["contentScript.js"],
-        "run_at": "document_end"
+        "matches": 
+        ["*://www.amazon.com/*", 
+          "*://www.amazon.com.au/*",
+          "*://www.amazon.com.br/*",
+          "*://www.amazon.ca/*",
+          "*://www.amazon.cn/*",
+          "*://www.amazon.de/*",
+          "*://www.amazon.fr/*",
+          "*://www.amazon.in/*",
+          "*://www.amazon.it/*",
+          "*://www.amazon.co.jp/*",
+          "*://www.amazon.com.mx/*",
+          "*://www.amazon.nl/*",
+          "*://www.amazon.sa/*",
+          "*://www.amazon.sg/*",
+          "*://www.amazon.es/*",
+          "*://www.amazon.se/*",
+          "*://www.amazon.com.tr/*",
+          "*://www.amazon.ae/*",
+          "*://www.amazon.co.uk/*",
+          "*://www.ebay.com/*",
+          "*://ar.ebay.com/*",
+          "*://www.ebay.com.au/*",
+          "*://www.ebay.at/*",
+          "*://by.ebay.com/*",
+          "*://www.ebay.be/*",
+          "*://bo.ebay.com/*",
+          "*://www.ebay.ca/*",
+          "*://cl.ebay.com/*",
+          "*://www.ebay.cn/*",
+          "*://co.ebay.com/*",
+          "*://cr.ebay.com/*",
+          "*://do.ebay.com/*",
+          "*://ec.ebay.com/*",
+          "*://sv.ebay.com/*",
+          "*://www.ebay.fr/*",
+          "*://www.ebay.de/*",
+          "*://gt.ebay.com/*",
+          "*://www.ebay.com/*",
+          "*://www.ebay.com/*",
+          "<all_urls>"],
+          "js": ["contentScript.js"],
+          "run_at": "document_end"
       }],
     "background": {
         "scripts": ["jquery-3.5.1.min.js" ,"background.js"],
@@ -15,15 +55,15 @@
     "browser_action": {
         "default_popup": "popup/popup.html",
         "default_icon": {
-        "16": "images/shopping-cart_16px.png",
-        "32": "images/shopping-cart_32px.png",
-        "128": "images/shopping-cart_128px.png"
+        "16": "images/extension_images/shopping-cart_16px.png",
+        "32": "images/extension_images/shopping-cart_32px.png",
+        "128": "images/extension_images/shopping-cart_128px.png"
         }
   },
     "icons": {
-        "16": "images/shopping-cart_16px.png",
-        "32": "images/shopping-cart_32px.png",
-        "128": "images/shopping-cart_128px.png"
+        "16": "images/extension_images/shopping-cart_16px.png",
+        "32": "images/extension_images/shopping-cart_32px.png",
+        "128": "images/extension_images/shopping-cart_128px.png"
       },
     "author": "M.G Extensions",
     "manifest_version": 2

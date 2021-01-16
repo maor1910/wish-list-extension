@@ -1,6 +1,10 @@
 chrome.storage.sync.get(null, async function (obj) {
   let str = '';
-  for (let i = 0; i < obj.urls.length; i++) {
+  let number_of_items_to_display = obj.urls.length;
+  if(number_of_items_to_display>6){
+    number_of_items_to_display = 6;
+  }
+  for (let i = 0; i < number_of_items_to_display; i++) {
     str += '<tr><td><span class="delete" id='
     str += obj.urls[i]
     str += '><i class="fas fa-trash-alt"></i></span></td><td class="image"><img src='
