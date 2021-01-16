@@ -4,23 +4,16 @@ let selectors =
         {
             "Amazon": ["landingImage"],
             "Ebay": ["icImg"],
-            "Aliexpress": ["poster"],
+            "Aliexpress": ["poster", "magnifier-image"],
             "Walmart": ["prod-hero-image-image, hover-zoom-hero-image"]
         },
     "prices":
         {
-            "Amazon": ["price_inside_buybox"],
-            "Ebay": ["prcIsum"],
+            "Amazon": ["price_inside_buybox","priceblock_ourprice"],
+            "Ebay": ["prcIsum", "mm-saleDscPrc"],
             "Aliexpress": ["product-price-value"],
             "Walmart": ["price-characteristic"]
         },
-    "product_names":
-        {
-            "Amazon": ["productTitle"],
-            "Ebay": ["it-ttl"],
-            "Aliexpress": ["product-title-text"],
-            "Walmart": ["prod-ProductTitle"]
-        }
 }
 
 // Listen for messages
@@ -214,4 +207,12 @@ const priceSelectors = {
             "pound": "£"
         }
     }
+   
+   "product_names":
+   {
+       "Amazon": ["productTitle"],
+       "Ebay": ["it-ttl"],
+       "Aliexpress": ["product-title-text"],
+       "Walmart": ["prod-ProductTitle"]
+   }
     */

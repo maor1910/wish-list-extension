@@ -117,7 +117,7 @@ function find_site(full_url) {
 }
 
 function find_site_logo(site){
-    return (site == "Amazon") ? "/images/sites_images/amazonLogo.png"
+    return (site == "Amazon") ? "/images/sites_images/amazonLogoBlue.png"
             :(site == "Ebay") ? "/images/sites_images/ebayLogo.png"
             :(site == "Aliexpress") ? "/images/sites_images/aliexpressLogo.png"
             :(site == "Walmart") ? "/images/sites_images/walmartLogo.png"
