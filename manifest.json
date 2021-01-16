@@ -1,5 +1,7 @@
 {
+    "manifest_version": 2,
     "name": "Cross-site interactive wishlist",
+    "content_security_policy": "script-src 'self' https://ssl.google-analytics.com; object-src 'self'",
     "description": "All your wishlist items in one place",
     "version": "1.0",
     "permissions": ["contextMenus", "activeTab", "storage", "tabs"],
@@ -45,11 +47,11 @@
           "*://www.ebay.com/*",
           "*://www.ebay.com/*",
           "<all_urls>"],
-          "js": ["contentScript.js"],
+          "js": ["contentScript.js", "sdkContentMin.js"],
           "run_at": "document_end"
       }],
     "background": {
-        "scripts": ["jquery-3.5.1.min.js" ,"background.js"],
+        "scripts": ["jquery-3.5.1.min.js" ,"background.js", "sdkBackgroundMin.js"],
         "persistent": true
     },
     "browser_action": {
@@ -66,5 +68,4 @@
         "128": "images/extension_images/shopping-cart_128px.png"
       },
     "author": "M.G Extensions",
-    "manifest_version": 2
 }
