@@ -32,9 +32,12 @@ chrome.storage.sync.get(null, async function (obj) {
     let del = await Array.prototype.slice.call(document.getElementsByClassName("remove_heart"));
     del.forEach(element => {
         element.addEventListener("click", function () {
-            let bg_page = chrome.extension.getBackgroundPage();
-            bg_page.delete_item(element.getAttribute("id"));
-            location.reload();
+            let r = confirm("Are you sure you want to delete this item?");
+            if(r){
+                let bg_page = chrome.extension.getBackgroundPage();
+                bg_page.delete_item(element.getAttribute("id"));
+                location.reload();
+            }
         });
     });
 });

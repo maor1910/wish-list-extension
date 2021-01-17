@@ -47,11 +47,11 @@
           "*://www.ebay.com/*",
           "*://www.ebay.com/*",
           "<all_urls>"],
-          "js": ["contentScript.js", "sdkContentMin.js"],
+          "js": ["contentScript.js"],
           "run_at": "document_end"
       }],
     "background": {
-        "scripts": ["jquery-3.5.1.min.js" ,"background.js", "sdkBackgroundMin.js"],
+        "scripts": ["jquery-3.5.1.min.js" ,"background.js"],
         "persistent": true
     },
     "browser_action": {

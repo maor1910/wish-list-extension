@@ -22,15 +22,22 @@ chrome.storage.sync.get(null, async function (obj) {
   let del = await Array.prototype.slice.call(document.getElementsByClassName("delete"));
   del.forEach(element => {
     element.addEventListener("click", function () {
-      let bg_page = chrome.extension.getBackgroundPage();
-      bg_page.delete_item(element.getAttribute("id"));
-      location.reload();
+      let r = confirm("Are you sure you want to delete this item?");
+      if(r){
+        let bg_page = chrome.extension.getBackgroundPage();
+        bg_page.delete_item(element.getAttribute("id"));
+        location.reload();
+      }
     });
   });
 });
 //make the go open a new tab
 $().ready(function () {
   $(document).on('click', '#link', function (element) {
+    chrome.tabs.create({ url: element.currentTarget.getAttribute("action") });
+    return false;
+  });
+  $(document).on('click', '.remove_heart', function (element) {
     chrome.tabs.create({ url: element.currentTarget.getAttribute("action") });
     return false;
   });
