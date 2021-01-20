@@ -63,7 +63,7 @@ function add_item(info, tab) {
                         result.prices.push(response.price);
                     }
                     else {
-                        result.prices.push("unknown, please check website");
+                        result.prices.push("Please check website");
                     }
                     result.products.push(tab.title);
                     result.urls.push(info.pageUrl);

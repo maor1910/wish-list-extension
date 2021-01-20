@@ -1,48 +1,61 @@
-let selectors = 
-{
-    "images":
-        {
-            "Amazon": ["landingImage"],
-            "Ebay": ["icImg"],
-            "Aliexpress": ["poster", "magnifier-image"],
-            "Walmart": ["prod-hero-image-image, hover-zoom-hero-image"]
-        },
-    "prices":
-        {
-            "Amazon": ["price_inside_buybox","priceblock_ourprice"],
-            "Ebay": ["prcIsum", "mm-saleDscPrc"],
-            "Aliexpress": ["product-price-value"],
-            "Walmart": ["price-characteristic"]
-        },
-}
+let selectors = {
+  images: {
+    Amazon: ["landingImage"],
+    Ebay: ["icImg"],
+    Aliexpress: ["poster", "magnifier-image"],
+    Walmart: ["prod-hero-image-image", "hover-zoom-hero-image"],
+  },
+  prices: {
+    Amazon: ["price_inside_buybox", "priceblock_ourprice"],
+    Ebay: ["prcIsum", "mm-saleDscPrc"],
+    Aliexpress: ["product-price-value"],
+    Walmart: ["price-characteristic"],
+  },
+};
 
 // Listen for messages
-chrome.runtime.onMessage.addListener(async function (msg, sender, sendResponse) {
-    let site = msg['site'];
-    let image_src = "";
-    let price = "";
-    selectors.images[site].forEach(selector => {
-        if(document.getElementById(selector)!=null && document.getElementById(selector)!=undefined){
-            image_src = document.getElementById(selector).getAttribute("src");
-        }
-        else if(document.getElementsByClassName(selector).length != 0){
-            image_src = document.getElementsByClassName(selector)[0].getAttribute("src");
-        }
-        else{}
-    });
-    selectors.prices[site].forEach(selector => {
-        if(document.getElementById(selector)!= null && document.getElementById(selector)!=undefined){
-            price = document.getElementById(selector).innerHTML;
-        }
-        else if(document.getElementsByClassName(selector).length != 0 && site !== "Walmart"){
-            price = document.getElementsByClassName(selector)[0].innerHTML;
-        }
-        else if(document.getElementsByClassName(selector).length != 0 && site === "Walmart"){
-            price = document.getElementsByClassName(selector)[0].getAttribute("content");
-        }
-        else{}
-    });    
-    await sendResponse({'image': image_src, 'price': price});
+chrome.runtime.onMessage.addListener(async function (msg,sender,sendResponse) {
+  let site = msg["site"];
+  let image_src = "";
+  let price = "";
+  selectors.images[site].forEach((selector) => {
+    if (document.getElementById(selector) != null && document.getElementById(selector) != undefined) {
+      image_src = document.getElementById(selector).getAttribute("src");
+    } else if (document.getElementsByClassName(selector).length != 0 && site !== "Walmart") {
+      image_src = document
+        .getElementsByClassName(selector)[0]
+        .getAttribute("src");
+    }
+    else if (document.getElementsByClassName(selector).length != 0 && site === "Walmart") {
+      image_src = "https:" + document
+        .getElementsByClassName(selector)[0]
+        .getAttribute("src");
+    } 
+    else {
+    }
+  });
+  selectors.prices[site].forEach((selector) => {
+    if (
+      document.getElementById(selector) != null &&
+      document.getElementById(selector) != undefined
+    ) {
+      price = document.getElementById(selector).innerHTML;
+    } else if (
+      document.getElementsByClassName(selector).length != 0 &&
+      site !== "Walmart"
+    ) {
+      price = document.getElementsByClassName(selector)[0].innerHTML;
+    } else if (
+      document.getElementsByClassName(selector).length != 0 &&
+      site === "Walmart"
+    ) {
+      price = document
+        .getElementsByClassName(selector)[0]
+        .getAttribute("content");
+    } else {
+    }
+  });
+  await sendResponse({ image: image_src, price: price });
 });
 
 //Currently not used, may be used in later versions
